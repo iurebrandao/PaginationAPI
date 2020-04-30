@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  api_pagination:
+    container_name: api_pagination
+    restart: unless-stopped
+    build: .
+    ports:
+      - 8001:8000
+    volumes:
+      - .:/PaginationAPI/
+    command: python3 wsgi.py
+    networks:
+      - pagination
+
+networks:
+  pagination:
+    driver: bridge
+
