@@ -1,4 +1,5 @@
-from app import app
+""" This module is used by Gunicorn to start the production server. """
+from app import app, db
 
-if __name__ == '__main__':
-    app.run(port=8000, host='0.0.0.0', debug=False, threaded=False)
+app.config.from_object('api.config.ProductionConfig')
+db.init_app(app)

@@ -6,10 +6,10 @@ services:
     restart: unless-stopped
     build: .
     ports:
-      - 8001:8000
+      - 5000:5000
     volumes:
       - .:/PaginationAPI/
-    command: python3 wsgi.py
+    command: python manage.py runserver --host 0.0.0.0
     networks:
       - pagination
 
