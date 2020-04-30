@@ -7,3 +7,9 @@ class BaseConfig:
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///{}".format(os.path.join(project_dir, "wine.db"))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class ProductionConfig:
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URI = "sqlite:///{}".format(os.path.join(project_dir, "wine.db"))
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

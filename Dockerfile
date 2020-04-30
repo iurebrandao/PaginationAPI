@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 COPY . /PaginationAPI/
 WORKDIR /PaginationAPI/
 
-EXPOSE 8000
+EXPOSE 5000
