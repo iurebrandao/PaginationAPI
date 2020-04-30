@@ -8,7 +8,7 @@ class WineView(Resource):
 
     def get(self):
         try:
-            wines = Wine.query.all()
+            wines = Wine.query.paginate(1, 20, True).items
             wines_json = [wine_jsonify(wine) for wine in wines]
 
             return make_response(jsonify(wines_json), 200)
