@@ -98,7 +98,7 @@ logo após, tópicos com a explicação de cada uma das tecnologias escolhidas.
 
 - Docker:
     A escolha dessa tecnologia é por além de simplificar a metodologia DevOps,
-    ela possibilita uma economia de recursos e velocidade por ter imagens bastante simplificados 
+    ela possibilita uma economia de recursos e velocidade por ter imagens bastante simplificadas 
     dos sistemas operacionais. A maior razão da sua escolha é pela sua escabilidade, pois como a aplicação seria utilizada por 
     vários usuários simultaneamente, ela obrigatoriamente precisa ser escalável para uma boa e eficiente 
     experiência de usuário.
@@ -114,7 +114,7 @@ logo após, tópicos com a explicação de cada uma das tecnologias escolhidas.
      Como o python por si só não é um servidor WSGI (Web Server Gateway Interface) próprio e eficiente para acessos 
      simultâneos, é preciso encontrar soluções que desempenhem de tal maneira. O Gunicorn é um dos vários servidores 
      WSGI disponíveis no mercado, porém ele se destaca por ser estável, ser utilizado pelas maiores aplicações Web feitas 
-     em python (como o Instagram) e, principalmente, por permitir a comunicação com multiplos servidores web e por lidar
+     em python (como o Instagram) e, principalmente, por permitir a comunicação com múltiplos servidores web e por lidar
      com múltiplos acessos simultâneos, permitindo que seja configurado o número de threads utilizados para cada 
      requisição e o número de processos (requisições) simultâneos que serão executados.
      
