@@ -10,7 +10,6 @@ class BaseConfig:
     PAGE_SIZE = 10
 
 
-
 class ProductionConfig:
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "sqlite:///{}".format(os.path.join(project_dir, "wine.db"))

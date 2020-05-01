@@ -13,7 +13,33 @@ services:
     networks:
       - pagination
 
+  api_pagination_prod:
+    container_name: api_pagination_prod
+    restart: unless-stopped
+    build: .
+    expose:
+      - 5000
+    volumes:
+      - .:/PaginationAPI/
+    command: ./gunicorn_start.sh
+    networks:
+      - pagination
+      - nginx_network
+
+  nginx:
+    image: nginx:1.17
+    restart: unless-stopped
+    ports:
+      - 81:81
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./logs/nginx/:/logs/nginx/
+    networks:
+      - nginx_network
+
 networks:
   pagination:
+    driver: bridge
+  nginx_network:
     driver: bridge
 
