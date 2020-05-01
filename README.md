@@ -18,10 +18,10 @@ docker-compose up -d --build api_pagination
 modo de desenvolvimento. Abra [http://localhost:5000/wine?page=1](http://localhost:5000/wine?page=1) 
 para ver a aplicação rodando.
 - Nesse repositório foi disponibilizado um banco `wine.db`, 
-no qual já está populado com os dados do arquivo `winemag-data-130k-v2.csv`, disponível neste  
-[link](https://www.kaggle.com/zynicide/wine-reviews).
-Portanto, com a execução do projeto já é possível fazer as consultas (próximo tópico). 
-As informações de como esse banco foi populado podem ser encontrados no tópico de "Comandos/informações adicionais".
+no qual já está populado com os dados do arquivo `winemag-data-130k-v2.csv`, disponível neste [link](https://www.kaggle.com/zynicide/wine-reviews).
+Portanto, com a execução do projeto já é possível fazer as consultas e filtros dos dados. 
+Há um tutorial detalhado para isso, de nome "Instruções de como retornar/filtrar os dados pela API".  
+E as informações de como esse banco foi populado podem ser encontrados no tópico de "Comandos/informações adicionais".
 - Caso precise parar a aplicação, rode:
 ```
 make stop
@@ -48,7 +48,7 @@ que pode ser alterado no arquivo `config.py`.
 - Essa view aceita os filtros via passagem de parâmetros (query params) na url.
 - Os filtros disponíveis são os campos "country", "description", "points", "price" e "variety".
 - O único parâmetro obrigatório é o número da página (page), que começa com 1 e vai até o limite de página dos dados.
-- A api retorna os dados na chave `data`. Também é retornado as chaves: 
+- A api retorna os dados de vinho na chave `data` do json retornado. Também é retornado as seguintes chaves: 
   - `current_page`: número da página atual
   - `has_next_page`: booleano que informa se há uma próxima página de dados
   - `has_prev_page`: booleano que informa se há uma página anterior de dados
@@ -75,13 +75,13 @@ Para rodar o projeto em modo produção, basta executar:
 make build-prod
 ```
 - Após a execução do comando logo acima, abra [http://localhost:81/wine?page=1](http://localhost:81/wine?page=1) 
-para ver a aplicação executando em modo produção.
+para ver a aplicação executando em modo produção, porém sem SSL.
 - Com os tópicos descritos acima, foi possível fazer uma simples rotina de CI (Continuous Integration), 
-disponível no arquivo `.github/workflows/ci.yml`. Ele executa o projeto nos modo de desenvolvimento e produção 
-e roda o teste toda vez que um "commit" é feito na "branch" `master` ou é feito um "pull request" nessa mesma "branch".
+disponível no arquivo `.github/workflows/ci.yml`. Ele instala e executa o projeto nos modo de desenvolvimento e produção 
+e roda os testes, toda vez que é feito um "push" na "branch" `master` ou é feito um "pull request" nessa mesma "branch".
 - O banco `wine.db` disponibilizado neste repositório, foi populado com o script `populate_db.py`. 
 Caso queira rodar esse script, adicione o arquivo `winemag-data-130k-v2.csv` 
-([link para download](https://www.kaggle.com/zynicide/wine-reviews)) no diretório `data`. 
+([link para download](https://www.kaggle.com/zynicide/wine-reviews)) no diretório `data/`. 
 Este arquivo não foi mantido no repositório para que ele não ficasse pesado.  
 
 ## Arquitetura 
