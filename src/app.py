@@ -6,4 +6,4 @@ from src.wine import WineView
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(WineView, '/')
+api.add_resource(WineView, '/wine')
