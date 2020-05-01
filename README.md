@@ -79,6 +79,10 @@ para ver a aplicação executando em modo produção.
 - Com os tópicos descritos acima, foi possível fazer uma simples rotina de CI (Continuous Integration), 
 disponível no arquivo `.github/workflows/ci.yml`. Ele executa o projeto nos modo de desenvolvimento e produção 
 e roda o teste toda vez que um "commit" é feito na "branch" `master` ou é feito um "pull request" nessa mesma "branch".
+- O banco `wine.db` disponibilizado neste repositório, foi populado com o script `populate_db.py`. 
+Caso queira rodar esse script, adicione o arquivo `winemag-data-130k-v2.csv` 
+([link para download](https://www.kaggle.com/zynicide/wine-reviews)) no diretório `data`. 
+Este arquivo não foi mantido no repositório para que ele não ficasse pesado.  
 
 ## Arquitetura 
 **Este tópico visa sugerir uma possível arquitetura para essa aplicação** 
