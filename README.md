@@ -6,6 +6,8 @@
 - Para poder fazer a instalação das dependências do projeto, certifique-se que os pacotes 
 [Docker](https://www.docker.com/) (versão 17.05 ou mais recente) e [Docker Compose](https://docs.docker.com/compose/) 
 estejam instalados em sua máquina.
+- Adicione o seu usuário ao grupo do docker, para não precisar utilizar `sudo` nos comandos. Caso contrário, adicione 
+`sudo` antes de todos os comandos. 
 - Certifique-se de que não há nenhum serviço rodando na porta 5000, pois é nessa porta que o serviço executará.
 - Execute o seguinte comando para instalar e executar o projeto na sua máquina:
 ```
