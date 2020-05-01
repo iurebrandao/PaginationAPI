@@ -85,39 +85,41 @@ Caso queira rodar esse script, adicione o arquivo `winemag-data-130k-v2.csv`
 ([link para download](https://www.kaggle.com/zynicide/wine-reviews)) no diretório `data/`. 
 Este arquivo não foi mantido no repositório para que ele não ficasse pesado.  
 
-## Arquitetura 
+## Arquitetura
 **Este tópico visa sugerir uma possível arquitetura para essa aplicação.** 
 
 
 A seguir há uma imagem com a arquitetura e, 
-logo após, tópicos onde é explicado cada uma das tecnologias escolhidas.
+logo após, tópicos com a explicação de cada uma das tecnologias escolhidas.
 
+![Alt text](diagram.png?raw=true "Diagrama")
 
 - Docker:
     A escolha dessa tecnologia é por além de simplificar a metodologia DevOps,
     ela possibilita uma economia de recursos e velocidade por ter imagens bastante simplificados 
-    dos sistemas operacionais. E principalmente por ser escalável, pois como a aplicação seria utilizada por 
+    dos sistemas operacionais. A maior razão da sua escolha é pela sua escabilidade, pois como a aplicação seria utilizada por 
     vários usuários simultaneamente, ela obrigatoriamente precisa ser escalável para uma boa e eficiente 
     experiência de usuário.
     
 - Nginx:
     Por ser um servidor web muito utilizado, bastante eficiente e prático nas suas operações de servidor e acessos 
     simultâneos  com balanceamento de carga HTTP, ele serviria de uma forma bastante eficiente como o balanceador e 
-    reverse proxy para a aplicação. O que proporcionaria mais velocidade e escabilidade. Dessa forma, 
-    os múltiplos acessos simultâneos dos usuários chegariam nele primeiro para que ele fosse a porta de entrada e 
+    proxy reverso para a aplicação. O que proporcionaria mais velocidade e escabilidade para ela. Dessa forma, 
+    os múltiplos acessos simultâneos dos usuários chegariam nele primeiro, para que ele fosse a porta de entrada e 
     aceitasse/barrasse cada uma das requisições e caso fosse aceita, a redicionaria para o Gunicorn.
     
 - Gunicorn:
      Como o python por si só não é um servidor WSGI (Web Server Gateway Interface) próprio e eficiente para acessos 
      simultâneos, é preciso encontrar soluções que desempenhem de tal maneira. O Gunicorn é um dos vários servidores 
-     WSGI disponíveis no mercado, porém ele se destaca por ser estável, utilizado pelas maiores aplicações Web feitas 
+     WSGI disponíveis no mercado, porém ele se destaca por ser estável, ser utilizado pelas maiores aplicações Web feitas 
      em python (como o Instagram) e, principalmente, por permitir a comunicação com multiplos servidores web e por lidar
-     com múltiplos acessos simultaneios, permitindo que você configure o número de threads utilizados para cada 
-     requisição e o número de processos simultâneos que serão executados.
+     com múltiplos acessos simultâneos, permitindo que seja configurado o número de threads utilizados para cada 
+     requisição e o número de processos (requisições) simultâneos que serão executados.
      
 - Flask:
-    Por ser uma framework em python que se destaca pela praticidade, facilidade, liberdade e por ter uma grande comunidade, 
+    Por ser uma framework em python que se destaca pela praticidade, facilidade, liberdade no seu desenvolvimento, 
     ele foi escolhido para servir a API. Ele poderia muito bem ser trocado pelo Django, que possue uma liberdade um pouco 
     menor que o Flask, porém tem uma robustez maior. A escolha entre essas duas frameworks pode ser mais assertiva quando
-    se tem uma clara definição do projeto e seus requisitos a ser desenvolvido, além dos desenvolvedores que atuaram nele.  
+    se tem uma clara definição do projeto a ser desenvolvido, além dos desenvolvedores que 
+    atuarão nele.  
        
