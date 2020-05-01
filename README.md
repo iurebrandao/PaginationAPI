@@ -6,6 +6,7 @@
 - Para poder fazer a instalação das dependências do projeto, certifique-se que os pacotes 
 [Docker](https://www.docker.com/) (versão 17.05 ou mais recente) e [Docker Compose](https://docs.docker.com/compose/) 
 estejam instalados em sua máquina.
+- Certifique-se de que não há nenhum serviço rodando na porta 5000, pois é nessa porta que o serviço executará.
 - Execute o seguinte comando para instalar e executar o projeto na sua máquina:
 ```
 make build
@@ -70,7 +71,7 @@ make test
 ```
 - Foi disponibilizado, também, o modo produção do projeto para rodar com o `Gunicorn` e o `Nginx`. 
 A razão da escolha dessas tecnologias está descrita no tópico "Arquitetura". 
-Para rodar o projeto em modo produção, basta executar: 
+Para rodar o projeto em modo produção, antes certique-se que não há nenhum serviço sendo executado na porta 81 e rode o comando: 
 ```
 make build-prod
 ```
