@@ -2,10 +2,13 @@
 
 ##TODO
 
-- Document API
 - run prod (with gunicorn, nginx)
 - Unit tests
 - CI
+
+
+Link para documentação:
+[http://localhost:5000/api/spec.html#!/spec/wine](http://localhost:5000/api/spec.html#!/spec/wine)
 
 
 Exemplo de consulta:

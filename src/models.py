@@ -4,6 +4,8 @@ db = SQLAlchemy()
 
 
 class Wine(db.Model):
+    """Wine model with all the columns """
+
     __tablename__ = 'wine'
     id = db.Column(db.Integer, primary_key=True)
     country = db.Column(db.String(128))
